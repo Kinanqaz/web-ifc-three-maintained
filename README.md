@@ -1,58 +1,29 @@
-<p align="center">
-  <a href="https://ifcjs.github.io/info/">ifc.js</a>
-  |
-  <a href="https://ifcjs.github.io/info/docs/Guide/web-ifc-three/Introduction">documentation</a>
-  |
-  <a href="https://ifcjs.github.io/web-ifc-three/example/">demo</a>
-  |
-  <a href="https://discord.gg/FXfyR4XrKT">discord</a>
-  |
-  <a href="https://github.com/IFCjs/web-ifc-three/tree/master/example">usage example</a>
-  |
-  <a href="https://www.npmjs.com/package/web-ifc-three">npm package</a>
-</p>
+# web-ifc-three-maintained
 
-<img src="banner.png">
+A maintained fork of web-ifc-three for the Navio BIM viewer project.
 
-<h1>THIS LIBRARY IS DEPRECATED. USE <a href="https://github.com/ifcjs/components">COMPONENTS</a> INSTEAD</h1>
+## Purpose
 
-<h1>web-ifc-three <img src="https://ifcjs.github.io/info/img/logo.svg" width="32"></h1>
+This fork maintains and extends web-ifc-three to add texturing support and bug fixes for the Navio application. The original web-ifc-three library is no longer actively maintained, and the newer @thatopen/components ecosystem has limitations that affect our use case (texturing not working).
 
-![npm](https://img.shields.io/npm/dw/web-ifc-three)
-![opencollective](https://opencollective.com/ifcjs/tiers/badge.svg)
+## What is web-ifc-three?
 
-This library is the implementation of [web-ifc](https://github.com/tomvandig/web-ifc) for [THREE.js](https://github.com/mrdoob/three.js/). This allows to parse and generate the Three.js geometry of IFC models in JavaScript, both in the browser and on a Node server, as well as query the IFC data and override it.
+web-ifc-three is the implementation of web-ifc for THREE.js. It parses and generates Three.js geometry of IFC models in JavaScript, both in the browser and on a Node server. It was the official IFCLoader of Three.js.
 
-This is [the official IFCLoader of Three.js](https://github.com/mrdoob/three.js/).
+## Changes in This Fork
 
-## Status
+- Texturing support for IFC models
+- Bug fixes and performance improvements
+- Compatibility updates for modern Three.js versions
 
-**web-ifc-three** creates efficient geometries that you can add to your Three.js scene. You can then use the methods provided in our API to work with that geometry, including efficient selection, visibility, subset generation, etc.
+## Installation
 
-Similarly to web-ifc, although it is quite stable and fast already, web-ifc-three is in **pre-alpha status** until ifc support matures. The list of currently supported ifc elements, or level of support for different ifc types, is an undocumented work in progress.
+Use this fork locally in your project:
 
-## Documentation
+```json
+"web-ifc-three": "file:./web-ifc-three-maintained"
+```
 
-Check out [our official docs](https://ifcjs.github.io/info/docs/Guide/web-ifc-three/Introduction) for API reference, guides and tutorials.
+## Original Repository
 
-## Install
-
-`npm install web-ifc-three`
-
-## Quick setup
-
-To set up a project quickly, check out our [hello world example](https://ifcjs.github.io/info/docs/Hello%20world).
-
-## Content
-
-This project consists of the following folders:
-
-- **web-ifc-three**: contains the source code.
-
-- **example**: contains one example of how to use the library.
-
-## Contributing
-
-Want to help out? Great!
-
-Please checkout [our contribution suggestions](https://github.com/IFCjs/web-ifc-three/blob/main/CONTRIBUTING.md) or speak to us directly in [Discord](https://discord.gg/FXfyR4XrKT).
+Based on https://github.com/IFCjs/web-ifc-three
