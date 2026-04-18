@@ -1,7 +1,7 @@
 import { BufferAttribute, BufferGeometry, Material, Matrix4, Mesh, Object3D } from 'three';
 // TODO: Remove ts ignore comments when @types/three gets updated
 // @ts-ignore
-import { mergeBufferGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils';
+import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils';
 import {
     FlatMesh,
     IfcGeometry,
@@ -10,7 +10,7 @@ import {
     IFCRELDEFINESBYPROPERTIES,
     IFCRELDEFINESBYTYPE, LoaderError, LoaderSettings, RawLineData, Vector
 } from 'web-ifc';
-import {ParserProgress} from "./components/IFCParser";
+import { ParserProgress } from "./components/IFCParser";
 
 export const IdAttrName = 'expressID';
 
@@ -161,7 +161,7 @@ export interface WebIfcAPI {
      */
     GetGeometry(modelID: number, geometryExpressID: number): IfcGeometry | Promise<IfcGeometry>;
 
-    GetLine(modelID: number, expressID: number, flatten?: boolean):  any | Promise<any>;
+    GetLine(modelID: number, expressID: number, flatten?: boolean): any | Promise<any>;
 
     GetAndClearErrors(modelID: number): Vector<LoaderError> | Promise<Vector<LoaderError>>;
 
@@ -171,7 +171,7 @@ export interface WebIfcAPI {
 
     GetRawLineData(modelID: number, expressID: number): RawLineData | Promise<RawLineData>;
 
-    WriteRawLineData(modelID: number, data: RawLineData):  any | Promise<any>;
+    WriteRawLineData(modelID: number, data: RawLineData): any | Promise<any>;
 
     GetLineIDsWithType(modelID: number, type: number): Vector<number> | Promise<Vector<number>>;
 
@@ -185,11 +185,11 @@ export interface WebIfcAPI {
 
     GetIndexArray(ptr: number, size: number): Uint32Array | Promise<Uint32Array>;
 
-    GetNameFromTypeCode(type:number): string | Promise<string>;
+    GetNameFromTypeCode(type: number): string | Promise<string>;
 
-    GetTypeCodeFromName(typeName:string): number | Promise<number>;
+    GetTypeCodeFromName(typeName: string): number | Promise<number>;
 
-    GetIfcEntityList(modelID: number) : Array<number> | Promise<Array<number>>;
+    GetIfcEntityList(modelID: number): Array<number> | Promise<Array<number>>;
 
     getSubArray(heap: any, startPtr: any, sizeBytes: any): any | Promise<any>;
 

@@ -15,3 +15,5 @@ web-ifc-three is the implementation of web-ifc for THREE.js. It parses and gener
 - Texturing support for IFC models
 - Bug fixes and performance improvements
 - Compatibility updates for modern Three.js versions
+- **Works with the latest version of Three.js (0.184.0)**
+- **Works with the latest version of WebIFC (0.0.77)**
