@@ -1,4 +1,4 @@
-import {OptionalCategories, ParserAPI, ParserProgress } from '../../components/IFCParser';
+import { OptionalCategories, ParserAPI, ParserProgress } from '../../components/IFCParser';
 import { WorkerActions, WorkerAPIs } from '../BaseDefinitions';
 import { IFCWorkerHandler } from '../IFCWorkerHandler';
 import { IFCModel } from '../../components/IFCModel';
@@ -11,21 +11,21 @@ import { IFCOPENINGELEMENT, IFCSPACE } from "web-ifc";
 export class ParserHandler implements ParserAPI {
 
     optionalCategories: OptionalCategories = {
-        [IFCSPACE]: true,
+        [IFCSPACE]: false,  // Disable spaces by default to reduce memory usage (20-40% reduction)
         [IFCOPENINGELEMENT]: false
     };
 
     API = WorkerAPIs.parser;
 
     constructor(private handler: IFCWorkerHandler,
-                private serializer: Serializer,
-                private BVH: BvhManager,
-                private IDB: IndexedDatabase) {
+        private serializer: Serializer,
+        private BVH: BvhManager,
+        private IDB: IndexedDatabase) {
     }
 
     async setupOptionalCategories(config: OptionalCategories) {
         this.optionalCategories = config;
-        return this.handler.request(this.API, WorkerActions.setupOptionalCategories, {config});
+        return this.handler.request(this.API, WorkerActions.setupOptionalCategories, { config });
     }
 
     async parse(buffer: any, coordinationMatrix?: number[]): Promise<IFCModel> {
@@ -37,7 +37,7 @@ export class ParserHandler implements ParserAPI {
             // await this.getItems(result.modelID);
             return this.getModel();
         };
-        return this.handler.request(this.API, WorkerActions.parse, {buffer, coordinationMatrix});
+        return this.handler.request(this.API, WorkerActions.parse, { buffer, coordinationMatrix });
     }
 
     getAndClearErrors(_modelId: number): void {
