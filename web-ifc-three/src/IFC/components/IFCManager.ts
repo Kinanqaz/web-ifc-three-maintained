@@ -4,7 +4,7 @@ import { SubsetManager } from './subsets/SubsetManager';
 import { PropertyManager } from './properties/PropertyManager';
 import { TypeManager } from './TypeManager';
 import { SubsetConfig, IfcState, JSONObject } from '../BaseDefinitions';
-import {BufferGeometry, Material, Matrix4, Scene} from 'three';
+import { BufferGeometry, Material, Matrix4, Scene } from 'three';
 import { IFCModel } from './IFCModel';
 import { BvhManager } from './BvhManager';
 import { LoaderSettings } from 'web-ifc';
@@ -101,14 +101,14 @@ export class IFCManager {
      * Sets a coordination matrix to be applied when loading geometry.
      * @matrix THREE.Matrix4
      */
-    setupCoordinationMatrix(matrix: Matrix4){
+    setupCoordinationMatrix(matrix: Matrix4) {
         this.state.coordinationMatrix = matrix;
     }
 
     /**
      * Clears the coordination matrix that is applied when loading geometry.
      */
-    clearCoordinationMatrix(){
+    clearCoordinationMatrix() {
         delete this.state.coordinationMatrix;
     }
 
@@ -137,7 +137,7 @@ export class IFCManager {
             this.state.worker.path = path;
             await this.initializeWorkers();
             const wasm = this.state.wasmPath;
-            if(wasm) await this.setWasmPath(wasm);
+            if (wasm) await this.setWasmPath(wasm);
         } else {
             this.state.api = new WebIFC.IfcAPI();
         }
@@ -202,7 +202,7 @@ export class IFCManager {
             geometry?.dispose();
             Array.isArray(material) ? material.forEach(m => m.dispose()) : material?.dispose();
             delete this.state.models[modelID];
-        } catch(e) {
+        } catch (e) {
             console.warn(`Close IFCModel ${modelID} failed`);
         }
     }
@@ -420,7 +420,7 @@ export class IFCManager {
         IFCModel.dispose();
         await this.cleaner.dispose();
         this.subsets.dispose();
-        if(this.worker && this.state.worker.active) await this.worker.terminate();
+        if (this.worker && this.state.worker.active) await this.worker.terminate();
         (this.state as any) = null;
     }
 
