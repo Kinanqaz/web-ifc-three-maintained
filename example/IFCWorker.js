@@ -73192,7 +73192,7 @@ class IFCParser {
         this.BVH = BVH;
         this.loadedModels = 0;
         this.optionalCategories = {
-            [IFCSPACE]: true,
+            [IFCSPACE]: false,
             [IFCOPENINGELEMENT]: false
         };
         this.geometriesByMaterials = {};
